@@ -34,15 +34,16 @@ export default class Photo extends PureComponent {
                 cover={<img alt={id} src={imgSrc} />}
                 actions={[
                     <b key="like">
-                        {likes}  <Icon  type="heart"  onClick={this._onClickLike}  />
+                        {likes}  <Icon type="heart" onClick={this._onClickLike} />
                     </b>,
                     <span key="comments">
                         {comments.length} <Icon type="message" />
                     </span>
                 ]}
             >
-                {null /* TODO-3 */}
-                <Meta description={caption} />
+                <Link to={`/${id}`}>
+                    <Meta description={caption} />
+                </Link>
             </Card>
         );
     }

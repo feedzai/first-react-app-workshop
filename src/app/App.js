@@ -24,7 +24,10 @@ class App extends Component {
                                 component={PhotoFeedPage}
                                 exact={true}
                             />
-                            {null /* TODO-3 */}
+                            <Route
+                                path="/:postId"
+                                component={PhotoDetailsPage}
+                            />
                             <Route component={NotFound} />
                         </Switch>
                     </div>

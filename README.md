@@ -170,7 +170,7 @@ When the component re-renders, `this.state.posts` will have one more post and th
 
 ### 3 - Add a new Route 
 
-Now we will want to create a new Route to enable us when clicking on a post to go to the details page.
+Now we will want to create a new Route to enable us when clicking on a post to go to details page.
 ```jsx
 // /src/app/App.js
 <Route
