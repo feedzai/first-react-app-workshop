@@ -41,7 +41,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ### Your First React App 
 ### 1 - Our first component 
-First we need to render a feed of posts so we will need to create the `PhotoFeed` component. This will render only a `<div>` with a text inside.
+First we need to render a feed of posts so we will need to create the `PhotoFeed` component. To start this will render only a `<div>` with a text inside.
 
 ```jsx
 // src/components/PhotoFeed.js
@@ -55,13 +55,41 @@ First we need to render a feed of posts so we will need to create the `PhotoFeed
     }
 }
 ```
-In our PhotoFeed component, we need to show all the posts passed throught props. On the render method we need to iterate through a list of Posts. Import the Photo component.
+
+Now we need to display the component in the `PhotoFeedPage`, first import the `PhotoFeed` in the `PhotoFeedPage`.
+
+```js
+// src/routes/PhotoFeedPage.js
+
+import PhotoFeed from "../components/PhotoFeed";
+```
+
+After importing we need to render the component, in the render method of `PhotoFeedPage` add the previously created component and pass by props the `posts` and the `onLikeIncrement` function.
+
+```js
+// src/routes/PhotoFeedPage.js
+
+render() {
+    return (
+        <PhotoFeed
+            posts={this.state.posts}
+            onLikeIncrement={this._onLikeIncrement}
+        />
+    );
+}
+```
+
+In our `PhotoFeed` component, we need to show all the posts passed throught props. On the render method we need to iterate through a list of Posts. 
+
+Import the `Photo` component and `Col`, `Row` from Ant Design.
 
 ```jsx
 // src/components/PhotoFeed.js
+
 import Photo from "./Photo";
 import { Col, Row } from "antd";
 ```
+
 To render multiple items in React, we pass an array of React elements. The most common way to build that array is to map over your array of data. Let’s do that in the render method of PhotoFeed:
 
 ```jsx
@@ -99,7 +127,15 @@ Whenever `this.setState` is called, an update to the component is scheduled, cau
 
 {likes}  <Icon  type="heart"  onClick={this._onClickLike}  />
 ```
-On `Photo` component we need to add a callback `_onClickLike`to the existing Icon component. The `_onClickLike` will call `onLikeIncrement` that is passed to Photo component via props by `PhotoDetailsPage` component, this function updates the posts that are stored in state and calls the setState function with the updated posts.
+On `Photo` component we need to add a callback `_onClickLike` to the existing Icon component. The `_onClickLike` will call `onLikeIncrement` that is passed to Photo component via props by `PhotoDetailsPage` component, this function updates the posts that are stored in state and calls the setState function with the updated posts.
+
+```js
+// src/components/Photo.js
+
+_onClickLike = () => {
+    this.props.onLikeIncrement(this.props.id);
+}
+```
 
 After this the `Photo` component will re-render with the updated number of likes.
 
@@ -109,6 +145,7 @@ Create a method called `_onCommentChange` that updates the state with the curren
 
 ```jsx
 // src/routes/PhotoDetailsPage.js
+
 _onCommentChange = (e) => {
     this.setState({
         value: e.target.value
@@ -123,8 +160,10 @@ When the component re-renders, `this.state.posts` will have one more post and th
 ### 3 - Add a new Route 
 
 Now we will want to create a new Route to enable us when clicking on a post to go to the details page.
+
 ```jsx
 // /src/app/App.js
+
 <Route
     path="/:postId"
     component={PhotoDetailsPage}
@@ -132,13 +171,16 @@ Now we will want to create a new Route to enable us when clicking on a post to g
 ```
 We setup a `Route` in `App` component defining a path, in this case `/:postId`. This path parameter can be accessed by `this.props.match.params.{nameOfTheParameter}` and the component that should be rendered, in this case `PhotoDetailsPage`.
 
+
+Finally for each `Photo` component we need to add a `Link` that when clicked will change the route of our application to `PhotoDetailsPage` component.
+
 ```jsx
 // /src/components/Photo.js
+
 <Link to={`/${id}`}>
     <Meta description={caption} />
 </Link>
 ```
-Finally for each `Photo` component we need to add a `Link` that when clicked will change the route of our application to `PhotoDetailsPage` component.
 
 ### 4 - PropTypes
 
