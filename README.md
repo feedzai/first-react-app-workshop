@@ -62,9 +62,11 @@ In our PhotoFeed component, we need to show all the posts passed throught props.
 import Photo from "./Photo";
 import { Col, Row } from "antd";
 ```
-To render multiple items in React, we pass an array of React elements. The most common way to build that array is to map over your array of data. Let’s do that in the render method of PhotoFeed:
+To render multiple items in React, we pass an array of React elements. The most common way to build that array is to map over your array of data. Let’s do that in the render method of `PhotoFeed`:
 
 ```jsx
+// src/components/PhotoFeed.js
+
 export default class PhotoFeed extends PureComponent {
     render() {
         const { posts, onLikeIncrement } = this.props;
@@ -87,12 +89,16 @@ export default class PhotoFeed extends PureComponent {
 Next we will need to import the `PhotoFeed` component in the `PhotoFeedPage`:
 
 ```jsx
+// /src/routes/PhotoFeedPage.js
+
 import PhotoFeed from "../components/PhotoFeed";
 ```
 
 And finally we need to instance the `PhotoFeed` component in the render method of `PhotoFeedPage` component:
 
 ```jsx
+// /src/routes/PhotoFeedPage.js
+
 render() {
     return (
         <PhotoFeed
@@ -116,9 +122,19 @@ Whenever `this.setState` is called, an update to the component is scheduled, cau
 ```jsx
 // /src/components/Photo.js
 
-{likes}  <Icon  type="heart"  onClick={this._onClickLike}  />
+<b key="like">
+    {likes}  <Icon  type="heart"  onClick={this._onClickLike}  />
+</b>
 ```
-On `Photo` component we need to add a callback `_onClickLike`to the existing Icon component. The `_onClickLike` will call `onLikeIncrement` that is passed to Photo component via props by `PhotoDetailsPage` component, this function updates the posts that are stored in state and calls the setState function with the updated posts.
+On `Photo` component we need to add a callback `_onClickLike`to the existing `Icon` component. The `_onClickLike` will call `onLikeIncrement` that is passed to `Photo` component via props by `PhotoDetailsPage` component, this function updates the posts that are stored in state and calls the setState function with the updated posts.
+
+```jsx
+// /src/components/Photo.js
+
+_onClickLike = () => {
+    this.props.onLikeIncrement(this.props.id);
+}
+````
 
 After this the `Photo` component will re-render with the updated number of likes.
 
@@ -128,6 +144,7 @@ Create a method called `_onCommentChange` that updates the state with the curren
 
 ```jsx
 // src/routes/PhotoDetailsPage.js
+
 _onCommentChange = (e) => {
     this.setState({
         value: e.target.value

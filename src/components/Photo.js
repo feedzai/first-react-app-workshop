@@ -15,6 +15,10 @@ export default class Photo extends PureComponent {
         comments: PropTypes.array
     }
 
+    _onClickLike = () => {
+        this.props.onLikeIncrement(this.props.id);
+    }
+
     render() {
         const {
             id,
@@ -30,7 +34,7 @@ export default class Photo extends PureComponent {
                 cover={<img alt={id} src={imgSrc} />}
                 actions={[
                     <b key="like">
-                        {likes} <Icon type="heart" onClick={null/* TODO-2 */} />
+                        {likes}  <Icon  type="heart"  onClick={this._onClickLike}  />
                     </b>,
                     <span key="comments">
                         {comments.length} <Icon type="message" />
