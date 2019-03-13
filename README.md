@@ -140,7 +140,7 @@ After this the `Photo` component will re-render with the updated number of likes
 
 #### 2.2 - Comment change
 
-Create a method called `_onCommentChange` that updates the state with the current form input `value`.
+Create a method called `_onCommentChange` that updates the state with the current form input `value`:
 
 ```jsx
 // src/routes/PhotoDetailsPage.js
@@ -152,7 +152,19 @@ _onCommentChange = (e) => {
 };
 ```
 
-This `value` stored in state is then used when the user clicks the Submit button. The method `_onSubmit` is called and will add the comment object to an array of posts that is also stored in React state. 
+And bind the function to the prop onChange of CommentFrom component:
+
+```jsx
+// src/routes/PhotoDetailsPage.js
+
+<CommentForm
+    onChange={this._onCommentChange}
+    onSubmit={this._onSubmit}
+    value={value}
+/>
+```
+
+This `value` stored in state, is then used when the user clicks the Submit button. The method `_onSubmit` is called and will add the comment object to an array of posts that is also stored in React state. 
 
 When the component re-renders, `this.state.posts` will have one more post and then the list will be updated.
 

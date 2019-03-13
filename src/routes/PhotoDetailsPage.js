@@ -72,6 +72,12 @@ export default class PhotoDetailsPage extends PureComponent {
         return null;
     };
 
+    _onCommentChange = (e) => {
+        this.setState({
+            value: e.target.value
+        });
+    };
+
     render() {
         const { value, loading } = this.state;
 
