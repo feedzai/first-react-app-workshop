@@ -140,6 +140,29 @@ We setup a `Route` in `App` component defining a path, in this case `/:postId`. 
 ```
 Finally for each `Photo` component we need to add a `Link` that when clicked will change the route of our application to `PhotoDetailsPage` component.
 
+### 4 - PropTypes
+
+As your app grows, you can catch a lot of bugs with typechecking. For some applications, you can use JavaScript extensions like Flow or TypeScript to typecheck your whole application. But even if you don’t use those, React has some built-in typechecking abilities. To run typechecking on the props for a component, you can assign the special propTypes property.
+
+Import the `PropTypes`.
+
+```js
+// src/components/PhotoFeed.js
+
+import PropTypes from 'prop-types';
+```
+
+On the `PhotoFeed` component set the prop `posts` to the type `array` and `required` and the prop `onLikeIncrement` to the type `func` and `required`.
+
+```js
+// src/components/PhotoFeed.js
+
+static propTypes = {
+    posts: PropTypes.array.isRequired,
+    onLikeIncrement: PropTypes.func.isRequired
+};
+```
+
 ## See it run 🚀
 
 You're at the end of your journey, and you've accomplished a lot.  **Congrats, You are awesome!**

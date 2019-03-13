@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
 import Photo from "./Photo";
 import { Col, Row } from "antd";
 
