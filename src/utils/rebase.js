@@ -3,12 +3,12 @@ import firebase from "firebase/app";
 import "firebase/database";
 
 const app = firebase.initializeApp({
-    apiKey: "AIzaSyB1MauDH9sMgzKdH1ISxn5SEF8rTvW1n48",
-    authDomain: "my-first-react-app-c702d.firebaseapp.com",
-    databaseURL: "https://my-first-react-app-c702d.firebaseio.com",
-    projectId: "my-first-react-app-c702d",
-    storageBucket: "my-first-react-app-c702d.appspot.com",
-    messagingSenderId: "345905942753"
+    apiKey: "AIzaSyAxLrJspbNOa-pHsakWXWE_kXMrqAFzgME",
+    authDomain: "first-react-app-workshop-f8afd.firebaseapp.com",
+    databaseURL: "https://first-react-app-workshop-f8afd.firebaseio.com",
+    projectId: "first-react-app-workshop-f8afd",
+    storageBucket: "first-react-app-workshop-f8afd.appspot.com",
+    messagingSenderId: "791458338660"
 });
 
 const db = firebase.database(app);
