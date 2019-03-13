@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import PhotoFeed from "../components/PhotoFeed";
 import base from "../utils/rebase";
 import mockPosts from "../utils/mockPosts";
 import { likeIncrement } from "../utils/rebaseUtils";
@@ -28,7 +29,10 @@ export default class PhotoFeedPage extends PureComponent {
 
     render() {
         return (
-            <span>TODO-1</span>
+            <PhotoFeed
+                posts={this.state.posts}
+                onLikeIncrement={this._onLikeIncrement}
+            />
         );
     }
 }

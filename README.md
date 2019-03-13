@@ -84,6 +84,25 @@ export default class PhotoFeed extends PureComponent {
 }
 ```
 
+Next we will need to import the `PhotoFeed` component in the `PhotoFeedPage`:
+
+```jsx
+import PhotoFeed from "../components/PhotoFeed";
+```
+
+And finally we need to instance the `PhotoFeed` component in the render method of `PhotoFeedPage` component:
+
+```jsx
+render() {
+    return (
+        <PhotoFeed
+            posts={this.state.posts}
+            onLikeIncrement={this._onLikeIncrement}
+        />
+    );
+}
+```
+
 ### 2 - Update the State something changes
 
 React components can have state by setting `this.state` in the constructor, which should be considered private to the component.
