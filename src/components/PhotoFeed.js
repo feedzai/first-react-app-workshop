@@ -4,6 +4,11 @@ import Photo from "./Photo";
 import { Col, Row } from "antd";
 
 export default class PhotoFeed extends PureComponent {
+    static propTypes = {
+        posts: PropTypes.array.isRequired,
+        onLikeIncrement: PropTypes.func.isRequired
+    };
+    
     render() {
         const { posts, onLikeIncrement } = this.props;
 
