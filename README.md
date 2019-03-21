@@ -49,6 +49,7 @@ First we need to render a feed of posts so we will need to create the `PhotoFeed
 
 ```jsx
 // src/components/PhotoFeed.js
+
   export default class PhotoFeed extends PureComponent {
     render() {
         return (
@@ -91,12 +92,13 @@ Import the `Photo` component and `Col`, `Row` from Ant Design.
 // src/components/PhotoFeed.js
 
 import Photo from "./Photo";
-import { Col, Row } from "antd";
 ```
 
 To render multiple items in React, we pass an array of React elements. The most common way to build that array is to map over your array of data. Let’s do that in the render method of PhotoFeed:
 
 ```jsx
+// src/components/PhotoFeed.js
+
 export default class PhotoFeed extends PureComponent {
     render() {
         const { posts, onLikeIncrement } = this.props;
