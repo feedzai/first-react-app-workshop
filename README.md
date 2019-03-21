@@ -1,43 +1,47 @@
+# Workshop: Building your first React App
+
+<p style='text-align: justify;'>This training workshop will cover the fundamentals of React. React.js is a an open-source JavaScript library for creating user interfaces with a focus on the UI and has become the tool of choice for easily building dynamic user interfaces.</p>
+
+#### Requirements:
+* Laptop
+* Node/NPM (https://nodejs.org/en/download/)
+* Chrome (https://www.google.com/chrome/)
+* Chrome Extension - React Developer Tools (https://goo.gl/g16a7N)
+* Text editor (https://code.visualstudio.com/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Getting Started
+### 1 - Installing Node
 
-In the project directory, you can run:
+Make sure you have Node 8.10 or later on your local development machine.
+```sh 
+node -v
+```
 
-### `npm start`
+If you don’t, install the latest version: [https://nodejs.org/en/](https://nodejs.org/en/).  
 
-Runs the app in the development mode.<br>
+
+### 2 - Running the Project
+
+Verify that everything works by running:
+
+```sh
+git clone https://github.com/feedzai/first-react-app-workshop
+cd first-react-app-workshop
+npm install
+npm start
+```
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+If there are any questions, feel free to email me! jose.sousa@feedzai.com
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ---
+
+## Step by step
 
 ### Your First React App 
 ### 1 - Our first component 
@@ -137,25 +141,21 @@ _onClickLike = () => {
 }
 ```
 
-After this the `Photo` component will re-render with the updated number of likes.
+Now in the `PhotoFeedPage` we need to save the `posts` state.
 
-#### 2.2 - Comment change
+```js
+// src/routes/PhotoFeedPage.js
 
-Create a method called `_onCommentChange` that updates the state with the current form input `value`.
+_onLikeIncrement = (postId) => {
+    const posts = likeIncrement(this.state.posts, postId);
 
-```jsx
-// src/routes/PhotoDetailsPage.js
-
-_onCommentChange = (e) => {
     this.setState({
-        value: e.target.value
+        posts
     });
 };
 ```
 
-This `value` stored in state is then used when the user clicks the Submit button. The method `_onSubmit` is called and will add the comment object to an array of posts that is also stored in React state. 
-
-When the component re-renders, `this.state.posts` will have one more post and then the list will be updated.
+After this the `Photo` component will re-render with the updated number of likes.
 
 ### 3 - Add a new Route 
 

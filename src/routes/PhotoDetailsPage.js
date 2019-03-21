@@ -62,6 +62,12 @@ export default class PhotoDetailsPage extends PureComponent {
         });
     };
 
+    _onCommentChange = (e) => {
+        this.setState({
+            value: e.target.value
+        });
+    };
+
     _renderCommentList = (post) => {
         const { comments } = post;
 
@@ -99,7 +105,7 @@ export default class PhotoDetailsPage extends PureComponent {
                             )}
                             content={(
                                 <CommentForm
-                                    onChange={null /* TODO-2*/}
+                                    onChange={this._onCommentChange}
                                     onSubmit={this._onSubmit}
                                     value={value}
                                 />

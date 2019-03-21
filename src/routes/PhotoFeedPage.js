@@ -4,7 +4,6 @@ import mockPosts from "../utils/mockPosts";
 import { likeIncrement } from "../utils/rebaseUtils";
 
 export default class PhotoFeedPage extends PureComponent {
-
     state = {
         posts: []
     };
@@ -21,9 +20,7 @@ export default class PhotoFeedPage extends PureComponent {
     _onLikeIncrement = (postId) => {
         const posts = likeIncrement(this.state.posts, postId);
 
-        this.setState({
-            posts
-        });
+        /* TODO 2 -  */
     };
 
     render() {
