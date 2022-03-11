@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+body {
+  color: #262626;
+  font-size: 14px;
+  line-height: 18px;
+}
+.app {
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+.app__header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: white;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  object-fit: contain;
+  border-bottom: 1px solid lightgray;
+}
+.app__headerWrapper {
+  max-width: 975px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app__headerButtons {
+  display: flex;
+  column-gap: 15px;
+}
+button {
+  font-size: 14px;
+  line-height: 18px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.primary__button {
+  background-color: #0095f6;
+  border-radius: 4px;
+  color: #fff;
+  padding: 5px 9px;
+  font-weight: 600;
+  text-align: center;
+}
+.text__button {
+  color: #0095f6;
+  font-weight: 600;
+  line-height: 28px;
+  background-color: transparent;
+}
+.app__signUp {
+  display: flex;
+  flex-direction: column;
+  margin: 28px 0;
+  row-gap: 15px;
+}
+
+.timeline {
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 20px;
+}
+
+button {
+  font-size: 14px;
+  line-height: 18px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.primary__button {
+  background-color: #0095f6;
+  border-radius: 4px;
+  color: #fff;
+  padding: 5px 9px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.text__button {
+  color: #0095f6;
+  font-weight: 600;
+  line-height: 28px;
+  background-color: transparent;
+}
+
+.app__signUp {
+  display: flex;
+  flex-direction: column;
+  margin: 28px 0;
+  row-gap: 15px;
+}
+
+input {
+  padding: 5px 9px;
+  line-height: 18px;
+  outline: none;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+}
+
+input:focus {
+  border: 1px solid gainsboro;
+}
+
+.authFooter {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.authFooter small {
+  color: rgb(172, 172, 172);
+}
+
+.authFooter hr {
+  border: 0;
+  border-top: 1px solid;
+  border-color: lightgray;
+}
+
+.authFooter a {
+  color: #0095f6;
+}

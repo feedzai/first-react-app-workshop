@@ -8,7 +8,7 @@ import CommentList from "../components/CommentList";
 import CommentForm from "../components/CommentForm";
 import mockPosts from "../utils/mockPosts";
 import base from "../utils/rebase";
-import { addComent, likeIncrement } from "../utils/rebaseUtils";
+import { addComment, likeIncrement } from "../utils/rebaseUtils";
 
 const TEST_USER_NAME = "Han Solo";
 const TEST_USER_AVATAR_URL = "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png";
@@ -41,7 +41,7 @@ export default class PhotoDetailsPage extends PureComponent {
       return;
     }
 
-    const posts = addComent(this.state.posts, this.props.match.params.postId, {
+    const posts = addComment(this.state.posts, this.props.match.params.postId, {
       author: TEST_USER_NAME,
       avatar: TEST_USER_AVATAR_URL,
       content: this.state.value,
