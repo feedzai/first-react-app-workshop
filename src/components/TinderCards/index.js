@@ -21,7 +21,14 @@ function TinderCards() {
       return (
         <TinderCard className="card" key={person.name} preventSwipe={["up", "down"]}>
           <div className="card__overlay"></div>
-          <img className="card__background" src={person.url} width="360" height="640" alt="" />
+          <img
+            className="card__background"
+            src={person.url}
+            width="360"
+            height="640"
+            alt=""
+            loading="lazy"
+          />
           <div className="card__info">
             <div className="card__info__top">
               <h3 className="card__title">{person.name}</h3>

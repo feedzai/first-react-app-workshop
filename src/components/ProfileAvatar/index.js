@@ -8,6 +8,7 @@ function ProfileAvatar() {
       width="32"
       height="32"
       alt="Fotografia do Dr. Bruno Aleixo"
+      loading="lazy"
     />
   );
 }
