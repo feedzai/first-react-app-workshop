@@ -14,11 +14,11 @@ function App() {
   return (
     <div className="app" role="application">
       <Router>
-        <Routes>
+        {/* <Routes>
           <Route path="/chat/:person" element={<ConversationPage />} />
           <Route path="/chat" element={<ChatsPage />} />
           <Route path="/" element={<HomePage />} />
-        </Routes>
+        </Routes> */}
       </Router>
     </div>
   );

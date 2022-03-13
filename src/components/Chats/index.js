@@ -19,7 +19,6 @@ function Chats() {
   /* useEffect(() => {
     const unsubscribe = getConversations((allMessages) => setMessages(allMessages));
 
-    // When the component unmounts, remove the messages subscription and the fake timeout
     return () => {
       unsubscribe();
     };

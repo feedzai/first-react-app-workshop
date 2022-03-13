@@ -28,15 +28,11 @@ function Chat({ id, name, message, profilePic, timestamp }) {
   const nameForUrl = kebabCase(name.toLowerCase());
   const convertedTimestamp = dayjs().to(dayjs(timestamp));
 
-  // STEP 6: Send the message data to a specific message screen
   return (
     <Link
       className={styles.chat}
       to={`/chat/${nameForUrl}`}
-      state={{
-        id,
-        name,
-      }}
+      // STEP 6: Send the message data to a specific message screen
     >
       <div className={styles.container}>
         <Avatar className={styles.image} alt={name} src={profilePic} />
