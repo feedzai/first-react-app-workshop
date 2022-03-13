@@ -3,12 +3,19 @@
   align-items: center;
   padding-block: 0.5rem;
   padding-inline: 1rem;
-  max-height: 3rem;
+  max-height: var(--header-height);
+  position: relative;
 }
 
 .header__option,
 .header__logo {
   display: flex;
+}
+
+.header__option {
+  content: "";
+  position: absolute;
+  left: 1rem;
 }
 
 .header__logo {

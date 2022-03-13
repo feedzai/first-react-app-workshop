@@ -1,0 +1,17 @@
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 1rem;
+}
+
+.modal__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.modal__message {
+  font-size: 1.125rem;
+}

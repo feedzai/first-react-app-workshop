@@ -1,18 +1,50 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
-import "./Chat.css";
+import styles from "./Chat.module.scss";
+import { kebabCase } from "lodash";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 
-function Chat({ name, message, profilePic, timestamp }) {
+dayjs.extend(relativeTime);
+
+/**
+ * @typedef {object} ChatProps
+ *
+ * @property {string} id
+ * @property {string} name
+ * @property {string} message
+ * @property {string} profilePic
+ * @property {string} timestamp
+ */
+
+/**
+ * Chat Screen
+ *
+ * @param {ChatProps} props
+ * @returns {JSX.Element}
+ */
+function Chat({ id, name, message, profilePic, timestamp }) {
+  const nameForUrl = kebabCase(name.toLowerCase());
+  const convertedTimestamp = dayjs().to(dayjs(timestamp));
+
+  // STEP 6: Send the message data to a specific message screen
   return (
-    <Link to={`/chat/${name}`}>
-      <div className="chat">
-        <Avatar className="chat__image" alt={name} src={profilePic} />
-        <div className="chat__details">
-          <h2 className="chat__title">{name}</h2>
-          <p className="chat__message">{message}</p>
+    <Link
+      className={styles.chat}
+      to={`/chat/${nameForUrl}`}
+      state={{
+        id,
+        name,
+      }}
+    >
+      <div className={styles.container}>
+        <Avatar className={styles.image} alt={name} src={profilePic} />
+        <div className={styles.details}>
+          <h2 className={styles.title}>{name}</h2>
+          <p className={styles.message}>{message}</p>
         </div>
-        <p className="chat__timestamp">{timestamp}</p>
+        <time className={styles.timestamp}>{convertedTimestamp}</time>
       </div>
     </Link>
   );

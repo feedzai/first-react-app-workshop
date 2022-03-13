@@ -1,4 +1,15 @@
 .chat {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.chat:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -8,24 +19,19 @@
   gap: 1rem;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.chat__details {
+.details {
   flex: 1;
 }
 
-.chat__title {
+.title {
   color: white;
   font-weight: 500;
 }
 
-.chat__message {
+.message {
   color: lightgray;
 }
 
-.chat__timestamp {
+.timestamp {
   color: gray;
 }

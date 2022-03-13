@@ -1,8 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./components";
-import reportWebVitals from "./utils/reportWebVitals";
 import "./assets/styles/index.css";
+
+// Worshop Steps
+// 1. Show the place around
+// 2. Get the Router working
+// 3. Get the latest people and show the cards
+// 4. Get the modal working
+// 5. Get the list of messages from the server
+// 6. Send the message data to a specific message screen
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,8 +17,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

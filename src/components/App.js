@@ -1,8 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { HomePage, ChatsPage, ConversationPage } from "../../pages";
-import "./App.css";
+import { HomePage, ChatsPage, ConversationPage } from "../pages";
 
+/**
+ * STEP 2: Get the router working
+ *
+ * Top-Level component
+ * Defines a list of `Route` components that watch for a specific path
+ *
+ * @returns {JSX.Element}
+ */
 function App() {
   return (
     <div className="app" role="application">

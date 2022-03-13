@@ -1,58 +1,75 @@
 import { Avatar } from "@material-ui/core";
 import React, { useState } from "react";
-import "./ChatScreen.css";
+import styles from "./ChatScreen.module.scss";
 
-function ChatScreen() {
+function ChatScreen({ chat }) {
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([
-    {
-      name: "Renato A.",
-      image: "https://feedzai-react-workshop-2022.web.app/profiles/img-renato.jpg",
-      message: "Oix Bruno! Hj tnhu 1 tema bué simbóliko para o Aleixo FM",
-    },
-    {
-      image:
-        "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.18169-9/12227767_10153761457592360_133494132698795818_n.jpg?_nc_cat=101&ccb=1-4&_nc_sid=174925&_nc_ohc=EEbBpRJw-ToAX_dUTqJ&_nc_ht=scontent-sjc3-1.xx&oh=69099579c27960b89a37047287340026&oe=6139F3DE",
-      message: "Não me digas. Mais uma das tuas porcarias da droga.",
-    },
-    {
-      name: "Renato A.",
-      image: "https://feedzai-react-workshop-2022.web.app/profiles/img-renato.jpg",
-      message: "Ya! Lol",
-    },
-  ]);
+  const [messages, setMessages] = useState(chat.messages);
 
-  const handleSend = (e) => {
-    e.preventDefault();
-    setMessages([...messages, { message: input }]);
+  function handleSend(event) {
+    // Prevents the default form submit action
+    event.preventDefault();
+
+    // On the set of messages, adds the last one at the bottom
+    const newMessages = [...messages];
+
+    newMessages.push({
+      message: input,
+    });
+
+    // Updates the state with the new messages and clears out the input
+    setMessages(newMessages);
     setInput("");
-  };
+  }
+
+  /**
+   * Renders a list of messages
+   *
+   * @returns {JSX.Element}
+   */
+  function renderMessagesList() {
+    const list = messages.map((message, index) => {
+      const key = index;
+
+      if (message.name) {
+        return (
+          <li key={key} className={styles.message}>
+            <Avatar className={styles.image} alt={message.name} src={message.img} />
+            <p className={styles.text}>{message.message}</p>
+          </li>
+        );
+      }
+
+      return (
+        <li key={key} className={styles.message}>
+          <p className={styles.textUser}>{message.message}</p>
+        </li>
+      );
+    });
+
+    return (
+      <ul id="chat-content" className={styles.list} aria-label="Chat content" tabIndex={0}>
+        {list}
+      </ul>
+    );
+  }
+
+  const placeholder = "Enviar mensagem...";
 
   return (
-    <div className="chatScreen">
-      <p className="chatScreen__timestamp">YOU MATCHED WITH RENATO ON 16/03/22</p>
-      {messages.map((message) =>
-        message.name ? (
-          <div className="chatScreen__message">
-            <Avatar className="chatScreen__image" alt={message.name} src={message.image} />
-            <p className="chatScreen__text">{message.message}</p>
-          </div>
-        ) : (
-          <div className="chatScreen__message">
-            <p className="chatScreen__textUser">{message.message}</p>
-          </div>
-        )
-      )}
-      <form className="chatScreen__input">
+    <div className={styles.chatScreen}>
+      {renderMessagesList()}
+      <form className={styles.input}>
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="chatScreen__inputField"
+          className={styles.inputField}
           type="text"
-          placeholder="Type a message..."
+          placeholder={placeholder}
         />
-        <button className="chatScreen__inputButton" onClick={handleSend} type="submit">
-          SEND
+        <button className={styles.inputButton} onClick={handleSend} type="submit">
+          Enviar
+          <span className="sr-only">mensagem</span>
         </button>
       </form>
     </div>

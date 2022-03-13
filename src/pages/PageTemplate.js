@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer, Header } from "../../components";
+import { Footer, Header } from "../components";
 
 function PageTemplate({ backButton, children }) {
   return (

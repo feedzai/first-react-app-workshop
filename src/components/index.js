@@ -4,5 +4,6 @@ export { default as Chats } from "./Chats";
 export { default as ChatScreen } from "./ChatScreen";
 export { default as Header } from "./Header";
 export { default as SwipeButtons } from "./SwipeButtons";
-export { default as TinderCards } from "./TinderCards";
+export { default as CardsList } from "./CardsList";
 export { default as Footer } from "./Footer";
+export { default as SpecialModal } from "./SpecialModal";

@@ -4,7 +4,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 3.5rem;
+  height: var(--footer-height);
 }
 
 .footer__navigation {
@@ -24,7 +24,7 @@
   color: #fe4d6a;
 }
 
-.footer__button--inactive.footer__button--inactive {
+.footer__button.Mui-disabled.Mui-disabled {
   color: #4b4b4b;
   cursor: not-allowed;
   pointer-events: none;

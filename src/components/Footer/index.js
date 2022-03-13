@@ -14,10 +14,10 @@ function Footer() {
         <IconButton component={NavLink} to="/" className="footer__button">
           <WhatshotIcon fontSize="large" />
         </IconButton>
-        <IconButton className="footer__button footer__button--inactive">
+        <IconButton className="footer__button" disabled>
           <SearchRounded fontSize="large" />
         </IconButton>
-        <IconButton className="footer__button footer__button--inactive">
+        <IconButton className="footer__button" disabled>
           <FavoriteIcon fontSize="large" />
         </IconButton>
         <IconButton component={NavLink} to="/chat" className="footer__button">
