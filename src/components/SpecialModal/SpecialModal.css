@@ -1,0 +1,44 @@
+.modal__image {
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: center center;
+  background-color: #f2c706;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 1rem;
+}
+
+.modal__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.modal__message {
+  font-size: 1.125rem;
+  text-align: center;
+}
+
+.modal__link.modal__link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+}
+
+.modal__link.modal__link:hover,
+.modal__link.modal__link:focus {
+  background-color: black;
+  color: white;
+}

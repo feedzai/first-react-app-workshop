@@ -1,0 +1,43 @@
+.chat {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.chat:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  height: 4.5rem;
+  border-bottom: 1px solid #464646;
+  gap: 1rem;
+}
+
+.details {
+  flex: 1;
+}
+
+.title {
+  color: white;
+  font-weight: 500;
+}
+
+.message {
+  color: lightgray;
+  display: inline-block;
+  max-width: 20ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.timestamp {
+  color: gray;
+}
