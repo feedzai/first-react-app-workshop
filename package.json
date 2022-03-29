@@ -1,12 +1,13 @@
 {
   "name": "feedzai-react-workshop",
   "version": "1.0.0",
-  "description": "React example starter project",
+  "description": "A simple cards React app",
   "keywords": [
     "react",
-    "starter"
+    "feedzai"
   ],
   "main": "src/index.js",
+  "license": "MIT",
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",

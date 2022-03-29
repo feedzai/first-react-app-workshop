@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { App } from "./components";
 import "./assets/styles/index.css";
 
-// Worshop Steps
+// Workshop Steps
 // 1. Show the place around
 // 2. Get the Router working
 // 3. Get the latest people and show the cards
