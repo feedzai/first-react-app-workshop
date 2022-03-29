@@ -1,16 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import * as serviceWorker from "./utils/serviceWorker";
-import App from "./app/App";
+import { App } from "./components";
+import "./assets/styles/index.css";
 
-/* global document */
-
-ReactDOM.render(
-    <App />,
-    document.getElementById("root")
+// Workshop Steps
+// 1. Show the place around
+// 2. Get the Router working
+// 3. Get the latest people and show the cards
+// 4. Get the modal working
+// 5. Get the list of messages from the server
+// 6. Send the message data to a specific message screen
+const ourContent = (
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
+const ourLovelyReactRoot = document.getElementById("root");
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(ourContent, ourLovelyReactRoot);
