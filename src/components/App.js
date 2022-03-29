@@ -12,7 +12,7 @@ import { HomePage, ChatsPage, ConversationPage } from "../pages";
  */
 function App() {
   return (
-    <div className="app" role="application">
+    <div role="application" className="app">
       <Router>
         <Routes>
           <Route path="/chat/:person" element={<ConversationPage />} />
