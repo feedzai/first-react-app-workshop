@@ -21,8 +21,17 @@ function CardsList() {
   // It starts with an empty array
   const [users, setUsers] = useState([]);
 
-  // STEP 4: Get the modal working
-  const [showModal, setShowModal] = useState(false);
+  /**
+   * STEP 4: Get the modal working
+   *
+   * Steps to resolve:
+   * 1. Import the useState hook
+   * 2. Declare a default value of false
+   * 3. The returned value is an array.
+   *    You can call them `[showModal, setShowModal]`, for example
+   * 4. Scroll down a bit. Uncomment the
+   */
+  // DO IT HERE
 
   const hasUsers = Array.isArray(users) && users.length > 0;
 
@@ -33,30 +42,33 @@ function CardsList() {
    * 1. query the firebase db
    * 2. get the latest snapshot of the collection of "people"
    * 3. and then update the component state (if there are, in fact, cards to show)
+   *
+   * Steps to resolve:
+   * 1. Import the useEffect hook
+   * 2. Add an empty dependency array
+   * 3. Import the `getPeople` helper
+   * 4. Add a callback function that receives all users and updates the state
+   * 5. Assign that to a constant
+   * 6. Return a cleanup function that:
+   *  6.1. Clears the timeout (there's one inside the getPeople)
+   *  6.2. Executes the `unsubscribe` function.
+   * 7. Scroll down to the `renderList` function and follow the instructions there.
    */
-  useEffect(() => {
-    const unsubscribe = getPeople((allUsers) => setUsers(allUsers));
-
-    // When the component unmounts, remove the cards subscription and the fake timeout
-    return () => {
-      clearTimeout();
-      unsubscribe();
-    };
-  }, []);
+  // DO IT HERE.
 
   /**
    * Handles the click on any of the bottom buttons
    */
-  function handleOnClickOnButtons() {
+  /* function handleOnClickOnButtons() {
     setShowModal(true);
-  }
+  } */
 
   /**
    * Handles the click to close modal
    */
-  function handleOnCloseModal() {
+  /* function handleOnCloseModal() {
     setShowModal(false);
-  }
+  } */
 
   /**
    * Render an array of `Card` components
@@ -65,13 +77,8 @@ function CardsList() {
    */
   function renderList() {
     // Go through each user and return a `Card` component with the necessary props
-    // 1. Convert the distance in meters to kilometers;
-    // 2. Don't forget the key
-    const listOfUsers = users.map((person) => {
-      const convertedDistance = (person.distance / 1000).toFixed(1);
-
-      return <Card key={person.name} distance={convertedDistance} person={person} />;
-    });
+    // 1. Pass in the person prop;
+    // 2. Don't forget the key 🔑
 
     return listOfUsers;
   }

@@ -1,6 +1,5 @@
 import { Modal, Box, Link } from "@mui/material";
 import React from "react";
-import modalImage from "../../assets/images/modal-image.jpg";
 import "./SpecialModal.css";
 
 const SOME_PROP_SPECIFIC_STYLES = {

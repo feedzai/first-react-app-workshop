@@ -15,14 +15,20 @@ function Chats() {
 
   /**
    * STEP 5: Get the list of messages from the server
+   *
+   * How to solve:
+   *
+   * 1. Just uncomment this code
+   *    Since it is very similar to what we've done on step 2, we
+   *    can save a little bit of time here.
    */
-  useEffect(() => {
+  /*   useEffect(() => {
     const unsubscribe = getConversations((allMessages) => setMessages(allMessages));
 
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, []); */
 
   function renderMessages() {
     const list = messages.map((msg) => {

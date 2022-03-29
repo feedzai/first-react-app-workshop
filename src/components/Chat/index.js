@@ -33,7 +33,8 @@ function Chat({ id, name, message, profilePic, timestamp }) {
       className={styles.chat}
       to={`/chat/${nameForUrl}`}
       // STEP 6: Send the message data to a specific message screen
-      state={{ id }}
+      // How to solve:
+      // 1. Add a state prop and pass an object with the id as an entry
     >
       <div className={styles.container}>
         <Avatar className={styles.image} alt={name} src={profilePic} />

@@ -12,12 +12,12 @@ import { HomePage, ChatsPage, ConversationPage } from "../pages";
  */
 function App() {
   return (
-    <div className="app" role="application">
+    <div role="application" className="app">
       <Router>
         <Routes>
-          <Route path="/chat/:person" element={<ConversationPage />} />
+          {/* <Route path="/chat/:person" element={<ConversationPage />} />
           <Route path="/chat" element={<ChatsPage />} />
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} /> */}
         </Routes>
       </Router>
     </div>
